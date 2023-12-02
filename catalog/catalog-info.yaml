@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: stu-python-app
+  description: Stu's Amazing Python Flask Web App
+  tags:
+    - app-accelerator
+    - beta
+    - function
+    - buildpacks
+    - knative
+    - python
+    - flask
+    - gunicorn
+    - web
+    - tanzu
+  annotations:
+    'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=stu-python-app'
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default-team

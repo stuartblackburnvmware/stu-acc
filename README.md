@@ -1,1 +1,1 @@
-# stu-acc
+# stu-python-app

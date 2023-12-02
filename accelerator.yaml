@@ -1,0 +1,49 @@
+accelerator:
+  displayName: Stu Python App
+  description: Stu's Amazing Python App Accelerator
+  iconUrl: https://raw.githubusercontent.com/vmware-tanzu/application-accelerator-samples/main/stu-python-app/pythonlogo.png
+  tags:
+  - python
+  - flask
+  - web
+  - tanzu
+
+  imports:
+    - name: tap-workload
+
+engine:
+  merge:
+    - include: [ "**/*" ]
+      exclude: [ "config/*.yaml", "README.md", "Tiltfile", "catalog/*.yaml", "templates/*.html" ]
+    - include: [ "Tiltfile" ]
+      chain:
+      - type: ReplaceText
+        substitutions:
+        - text: stu-python-app
+          with: "#artifactId.toLowerCase()"
+
+    - include: [ "config/*.yaml" ]
+      chain:
+      - type: ReplaceText
+        substitutions:
+        - text: ": stu-python-app"
+          with: "': ' + #artifactId.toLowerCase()"
+      - merge:
+        - type: InvokeFragment
+          reference: tap-workload
+        - include: [ "**" ]
+        onConflict: UseFirst
+
+    - include: [ "README.md" ]
+      chain:
+      - type: ReplaceText
+        substitutions:
+        - text: stu-python-app
+          with: "#artifactId"
+
+    - include: [ "catalog/*.yaml" ]
+      chain:
+      - type: ReplaceText
+        substitutions:
+        - text: stu-python-app
+          with: "#artifactId"
