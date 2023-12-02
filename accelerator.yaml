@@ -12,38 +12,39 @@ accelerator:
     - name: tap-workload
 
 engine:
-  merge:
+  chain:
+  - merge:
     - include: [ "**/*" ]
       exclude: [ "config/*.yaml", "README.md", "Tiltfile", "catalog/*.yaml", "templates/*.html" ]
     - include: [ "Tiltfile" ]
       chain:
       - type: ReplaceText
-        substitutions:
-        - text: stu-python-app
-          with: "#artifactId.toLowerCase()"
+	substitutions:
+	- text: stu-python-app
+	  with: "#artifactId.toLowerCase()"
 
     - include: [ "config/*.yaml" ]
       chain:
       - type: ReplaceText
-        substitutions:
-        - text: ": stu-python-app"
-          with: "': ' + #artifactId.toLowerCase()"
+	substitutions:
+	- text: ": stu-python-app"
+	  with: "': ' + #artifactId.toLowerCase()"
       - merge:
-        - type: InvokeFragment
-          reference: tap-workload
-        - include: [ "**" ]
-        onConflict: UseFirst
+	- type: InvokeFragment
+	  reference: tap-workload
+	- include: [ "**" ]
+	onConflict: UseFirst
 
     - include: [ "README.md" ]
       chain:
       - type: ReplaceText
-        substitutions:
-        - text: stu-python-app
-          with: "#artifactId"
+	substitutions:
+	- text: stu-python-app
+	  with: "#artifactId"
 
     - include: [ "catalog/*.yaml" ]
       chain:
       - type: ReplaceText
-        substitutions:
-        - text: stu-python-app
-          with: "#artifactId"
+	substitutions:
+	- text: stu-python-app
+	  with: "#artifactId"
