@@ -5,7 +5,7 @@ TYPE = os.getenv("TYPE", default='web')
 OUTPUT_TO_NULL_COMMAND = os.getenv("OUTPUT_TO_NULL_COMMAND", default=' > /dev/null ')
 
 k8s_custom_deploy(
-    'python-web-app',
+    'stu-python-app',
     apply_cmd="tanzu apps workload apply -f config/workload.yaml --update-strategy replace --debug --live-update" +
                " --local-path " + LOCAL_PATH +
                " --namespace " + NAMESPACE +
@@ -13,7 +13,7 @@ k8s_custom_deploy(
                " --type " + TYPE +
                " --yes " +
                OUTPUT_TO_NULL_COMMAND +
-               " && kubectl get workload python-web-app --namespace " + NAMESPACE + " -o yaml",
+               " && kubectl get workload stu-python-app --namespace " + NAMESPACE + " -o yaml",
     delete_cmd="tanzu apps workload delete -f config/workload.yaml --namespace " + NAMESPACE + " --yes",
     deps=[''],
     container_selector='workload',
@@ -26,5 +26,5 @@ k8s_custom_deploy(
     ]
 )
 
-k8s_resource('python-web-app', port_forwards=["8080:8080"],
-            extra_pod_selectors=[{'carto.run/workload-name': 'python-web-app', 'app.kubernetes.io/component': 'run'}])
+k8s_resource('stu-python-app', port_forwards=["8080:8080"],
+            extra_pod_selectors=[{'carto.run/workload-name': 'stu-python-app', 'app.kubernetes.io/component': 'run'}])
