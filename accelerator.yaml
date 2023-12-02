@@ -1,7 +1,7 @@
 accelerator:
   displayName: Stu Python App
   description: Stu's Amazing Python App Accelerator
-  iconUrl: https://raw.githubusercontent.com/vmware-tanzu/application-accelerator-samples/main/stu-python-app/pythonlogo.png
+  iconUrl: https://github.com/stuartblackburnvmware/stu-acc/blob/main/soccer.png
   tags:
   - python
   - flask
