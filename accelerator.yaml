@@ -16,12 +16,13 @@ engine:
   - merge:
     - include: [ "**/*" ]
       exclude: [ "config/*.yaml", "README.md", "Tiltfile", "catalog/*.yaml", "templates/*.html" ]
+
     - include: [ "Tiltfile" ]
       chain:
       - type: ReplaceText
         substitutions:
         - text: stu-python-app
-          with: "#artifactId.toLowerCase()"
+          with: "#artifactId"
 
     - include: [ "config/*.yaml" ]
       chain:
