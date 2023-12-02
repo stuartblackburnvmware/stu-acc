@@ -19,9 +19,9 @@ engine:
     - include: [ "Tiltfile" ]
       chain:
       - type: ReplaceText
-	substitutions:
-	- text: stu-python-app
-	  with: "#artifactId.toLowerCase()"
+        substitutions:
+        - text: stu-python-app
+          with: "#artifactId.toLowerCase()"
 
     - include: [ "config/*.yaml" ]
       chain:
