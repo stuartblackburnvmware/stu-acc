@@ -26,25 +26,25 @@ engine:
     - include: [ "config/*.yaml" ]
       chain:
       - type: ReplaceText
-	substitutions:
-	- text: ": stu-python-app"
-	  with: "': ' + #artifactId.toLowerCase()"
+        substitutions:
+        - text: ": stu-python-app"
+          with: "': ' + #artifactId.toLowerCase()"
       - merge:
-	- type: InvokeFragment
-	  reference: tap-workload
-	- include: [ "**" ]
-	onConflict: UseFirst
+        - type: InvokeFragment
+          reference: tap-workload
+        - include: [ "**" ]
+        onConflict: UseFirst
 
     - include: [ "README.md" ]
       chain:
       - type: ReplaceText
-	substitutions:
-	- text: stu-python-app
-	  with: "#artifactId"
+        substitutions:
+        - text: stu-python-app
+          with: "#artifactId"
 
     - include: [ "catalog/*.yaml" ]
       chain:
       - type: ReplaceText
-	substitutions:
-	- text: stu-python-app
-	  with: "#artifactId"
+        substitutions:
+        - text: stu-python-app
+          with: "#artifactId"
