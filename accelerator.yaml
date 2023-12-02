@@ -50,3 +50,5 @@ engine:
         substitutions:
         - text: stu-python-app
           with: "#artifactId"
+
+    - include: [ "templates/*.html" ]
