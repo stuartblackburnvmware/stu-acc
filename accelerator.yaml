@@ -12,6 +12,13 @@ accelerator:
   imports:
     - name: tap-workload
 
+  options:
+  - name: keyword
+    label: Keyword
+    inputType: text
+    required: true
+    defaultValue: banana
+
 engine:
   chain:
   - merge:
