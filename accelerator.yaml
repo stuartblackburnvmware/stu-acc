@@ -24,7 +24,7 @@ engine:
   chain:
   - merge:
     - include: [ "**/*" ]
-      exclude: [ "config/*.yaml", "README.md", "Tiltfile", "catalog/*.yaml", "templates/*.html" ]
+      exclude: [ "config/*.yaml", "README.md", "Tiltfile", "catalog/*.yaml", "templates/*.html", "test.py" ]
 
     - include: [ "Tiltfile" ]
       chain:
@@ -60,3 +60,15 @@ engine:
           with: "#artifactId"
 
     - include: [ "templates/*.html" ]
+      chain:
+      - type: ReplaceText
+        substitutions:
+        - text: banana
+          with: "#keyword"
+
+    - include: [ "test.py" ]
+      chain:
+      - type: ReplaceText
+        substitutions:
+        - text: banana
+          with: "#keyword"  
