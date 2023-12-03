@@ -8,6 +8,7 @@ accelerator:
   - flask
   - web
   - tanzu
+  - options
 
   imports:
     - name: tap-workload
@@ -59,16 +60,16 @@ engine:
         - text: stu-python-app
           with: "#artifactId"
 
-    - include: [ "templates/*.html" ]
-      chain:
-      - type: ReplaceText
-        substitutions:
-        - text: banana
-          with: "#keyword"
+    # - include: [ "templates/*.html" ]
+    #   chain:
+    #   - type: ReplaceText
+    #     substitutions:
+    #     - text: banana
+    #       with: "#keyword"
 
-    - include: [ "test.py" ]
-      chain:
-      - type: ReplaceText
-        substitutions:
-        - text: banana
-          with: "#keyword"  
+    # - include: [ "test.py" ]
+    #   chain:
+    #   - type: ReplaceText
+    #     substitutions:
+    #     - text: banana
+    #       with: "#keyword"  
