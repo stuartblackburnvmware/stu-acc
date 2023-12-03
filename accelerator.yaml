@@ -13,13 +13,13 @@ accelerator:
   imports:
     - name: tap-workload
 
-  options:
-  - name: keyword
-    label: Keyword
-    description: "Enter the word you want to display on the amazing webapp"
-    inputType: text
-    required: true
-    defaultValue: banana
+  # options:
+  # - name: keyword
+  #   label: Keyword
+  #   description: "Enter the word you want to display on the amazing webapp"
+  #   inputType: text
+  #   required: true
+  #   defaultValue: banana
 
 engine:
   chain:
