@@ -15,7 +15,7 @@ accelerator:
   options:
   - name: keyword
     label: Keyword
-    text: "Enter the word you want to display on the amazing webapp"
+    description: "Enter the word you want to display on the amazing webapp"
     inputType: text
     required: true
     defaultValue: banana
